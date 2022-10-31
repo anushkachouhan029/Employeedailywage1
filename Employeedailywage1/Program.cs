@@ -1,11 +1,12 @@
 ﻿class Program
+
+{ 
+
     public const int IS_PART_TIME = 1;
     public const int IS_FULL_TIME = 2;
-    public const int EMP_RATE_PER_HOUR = 20;
-    public const int NUM_OF_WORKING_DAYS = 2;
-    public const int MAX_HRS_IN_MONTH = 10;
+    
 
-    public static int computeEmpWage()
+    public static int computeEmpWage(string company,int empperhour,int numofworkingdays,int maxhourpermonth)
     { 
 
     int empHrs = 0;
@@ -31,6 +32,12 @@
     Console.WriteLine("Day#:" + totalworkingdays + "emp hrs :" + empHrs);
     }
     int totalEmpWage = totalEmphrs * EMP_RATE_HER_HOUR;
-    Console.WriteLine("Total Emp Wage: " + totalEmpWage);
+    Console.WriteLine("Total Emp Wage for company : " + company + "is : " + totalEmpWage);
+        return totalEmpWage;
  }
+    static void Main(string[] args)
+    {
+        computeEmpWage("Dmart",20,2,10);
+        computeEmpWage("reliance",10,15,8)
+    }
 }
