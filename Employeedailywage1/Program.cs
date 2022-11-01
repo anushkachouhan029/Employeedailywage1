@@ -1,23 +1,31 @@
-﻿class Program
-
+﻿public class EmpWageBuilderobject
 { 
 
-    public const int IS_PART_TIME = 1;
-    public const int IS_FULL_TIME = 2;
+    private string Company = 1;
+    private int emprateperhour = 2;
+    private int numofworkingdays = 3;
+    private int maxhourhermonth = 4;
+    private int totalempwage = 5;
     
 
-    public static int computeEmpWage(string company,int empperhour,int numofworkingdays,int maxhourpermonth)
+    public EmpWageBuilderobject (string company, int empperhour,int numofworkingdays,int maxhourpermonth)
     { 
 
-    int empHrs = 0;
-    int totalEmphrs = 0;
-    int totalworkingdays =0 ;
-    while (totalEmphrs < = MAX_HRS_IN_MONTH && totalworkingdays < NUM_OF_WORKING_DAYS)
+    this.company  = company;
+    this emprateperhour = emprateperhour;
+    this.numofworkingdays = numofworkingdays;
+    this.maxhourhermonth = maxhourpermonth;
+    }
+    
+    public void computeempwage()
     { 
-    totalworkingdays++;
-    Random random = new Random();
-    switch (empCheck)
-    {
+    int empHrs = 0,totalemphours = 0; totalworkingdays = 0;
+     while (totalemphours <=this.maxhourhermonth && totalwokingdays< this.numofworkingdays)
+     {
+       totalworkingdays++;
+       Random random = random.Next(0,3);
+       switch(empcheck)
+       { 
         case IS_PART_TIME;
         empHrs = 4;
         break;
@@ -35,9 +43,8 @@
     Console.WriteLine("Total Emp Wage for company : " + company + "is : " + totalEmpWage);
         return totalEmpWage;
  }
-    static void Main(string[] args)
+    public string tostring()
     {
-        computeEmpWage("Dmart",20,2,10);
-        computeEmpWage("reliance",10,15,8)
+        return "total emp wage for company :" + this.company + "is :" + this.totalempwage;
     }
 }
