@@ -1,24 +1,35 @@
 ﻿public class EmpWageBuilderobject
 { 
+    public const int IS_PART_TIME = 1;
+    public const int IS_PART_DATE = 2;
 
-    private string Company = 1;
-    private int emprateperhour = 2;
-    private int numofworkingdays = 3;
-    private int maxhourhermonth = 4;
-    private int totalempwage = 5;
-    
+    private int numofcompany = 0;
+    private CompanyEmpWage[] companyEmpWages;
+   
+    public EmpWageBuilderArray()
+    {
+        this.companyEmpWagesArray = new CompanyEmpWage[5];
+    }
 
-    public EmpWageBuilderobject (string company, int empperhour,int numofworkingdays,int maxhourpermonth)
-    { 
-
-    this.company  = company;
-    this emprateperhour = emprateperhour;
-    this.numofworkingdays = numofworkingdays;
-    this.maxhourhermonth = maxhourpermonth;
+    public void addCompany(string company,int emprateperhour,int numofworkingdays, int maxhourpermonth)
+    {
+        companyEmpWages[this.numofcompany] = new CompanyEmpWage(company,emprateperhour,numofworkingdays,maxhourpermonth);
+        numofcompany++;
     }
     
-    public void computeempwage()
+    public void companyempwage()
+    {
+        for(int i = 0; i < numofcompany; i++)
+        {
+            companyempwageArray[i].setTotalEmpwage(this.computeempwage(this.computeempwa[i]));
+            Console.WriteLin(this.companyempwag[i].tostring());
+       }
+    }
+    
+
+    private int computeempwage(companyempwage companyempwage)
     { 
+    
     int empHrs = 0,totalemphours = 0; totalworkingdays = 0;
      while (totalemphours <=this.maxhourhermonth && totalwokingdays< this.numofworkingdays)
      {
@@ -39,11 +50,6 @@
     totalEmphrs += empHrs;
     Console.WriteLine("Day#:" + totalworkingdays + "emp hrs :" + empHrs);
     }
-    int totalEmpWage = totalEmphrs * EMP_RATE_HER_HOUR;
-    Console.WriteLine("Total Emp Wage for company : " + company + "is : " + totalEmpWage);
-        return totalEmpWage;
- }
-    public string tostring()
     {
         return "total emp wage for company :" + this.company + "is :" + this.totalempwage;
     }
